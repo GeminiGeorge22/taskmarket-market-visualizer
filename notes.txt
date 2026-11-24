@@ -1,0 +1,24 @@
+Live URL: https://geminigeorge22.github.io/taskmarket-market-visualizer/
+Repo URL: https://github.com/GeminiGeorge22/taskmarket-market-visualizer
+
+Stack: Node 22. One process (`node server.mjs`) for a live host, or `node build.mjs` plus a static host. The GitHub Actions workflow in .github/workflows/pages.yml is a scheduled build that runs at least hourly (free standard runners on this public repo) and publishes public/ to GitHub Pages. No wallet, no analytics, no third-party logos.
+
+The first view is a filterable list of open tasks with escrowed rewards: reward, time left, submissions (competition), category, and whether entry is free. Default sort is best opportunity (reward / (1 + submissions)). Filters — min reward, ending soon, max submissions, free entry, category, chain, and sort — are stored in the URL so a view can be shared.
+
+Endpoints used (all under https://api.taskmarket.dev, server-side or scheduled-build only; the browser never calls them):
+- /api/market/stats?chainId=
+- /api/stats/breakdowns?chainId=
+- /api/stats/platform-time-series?chainId=&range=&bucket=day
+- /api/stats/activity-heatmap?chainId=&range=7d&dimension=hourOfWeek
+- /api/stats/activity-feed?chainId=&limit=
+- /api/tasks?chainId=&sort=newest&limit=100  (requester addresses, distinct posters per week)
+- /api/tasks?chainId=&status=open&sort=newest&limit=100  (open paid task list)
+
+How and how often it refreshes:
+- Live host: on-demand fetch, cache at least 60 seconds (default 300s), visible "data as of" time.
+- Pages / static: scheduled build at least hourly; "data as of" is the build time.
+
+Deploy command:
+  node server.mjs
+or, for the static site:
+  node build.mjs
