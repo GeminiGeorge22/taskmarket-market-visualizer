@@ -1,7 +1,7 @@
-@font-face{font-family:"Instrument Serif";src:url("/brand/InstrumentSerif-Regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
-@font-face{font-family:"Instrument Serif";src:url("/brand/InstrumentSerif-Italic.ttf") format("truetype");font-weight:400;font-style:italic;font-display:swap}
-@font-face{font-family:"Inter Tight";src:url("/brand/InterTight-Variable.ttf") format("truetype");font-weight:100 900;font-style:normal;font-display:swap}
-@font-face{font-family:"Departure Mono";src:url("/brand/DepartureMono-Regular.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Instrument Serif";src:url("brand/InstrumentSerif-Regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Instrument Serif";src:url("brand/InstrumentSerif-Italic.ttf") format("truetype");font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:"Inter Tight";src:url("brand/InterTight-Variable.ttf") format("truetype");font-weight:100 900;font-style:normal;font-display:swap}
+@font-face{font-family:"Departure Mono";src:url("brand/DepartureMono-Regular.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
 :root{--ground:#12100E;--panel:#221E1A;--line:#453E37;--cream:#EFE9E2;--paper:#FFF6E8;--muted:#B0A79D;--magenta:#E74079;--salmon:#D9A097}
 *{box-sizing:border-box}html,body{margin:0;background:var(--ground);color:var(--cream);font-family:"Inter Tight",system-ui,sans-serif;font-weight:500}
 a{color:var(--salmon);text-decoration:none}a:hover{color:var(--paper)}

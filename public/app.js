@@ -349,11 +349,11 @@ async function load() {
   board.innerHTML = `<p class="err">Loading snapshot…</p>`;
   let data = null;
   try {
-    const res = await fetch(`/api/snapshot?range=${encodeURIComponent(state.range)}`);
+    const res = await fetch(`api/snapshot?range=${encodeURIComponent(state.range)}`);
     if (res.ok) data = await res.json();
   } catch (_) { /* static host has no /api/snapshot */ }
   if (!data) {
-    const res = await fetch(`/data/snapshot-${encodeURIComponent(state.range)}.json`);
+    const res = await fetch(`data/snapshot-${encodeURIComponent(state.range)}.json`);
     if (!res.ok) throw new Error(`snapshot ${res.status}`);
     data = await res.json();
   }
