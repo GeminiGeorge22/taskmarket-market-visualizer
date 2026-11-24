@@ -1,0 +1,23 @@
+notes.txt for TSK-BRK611AN — fill live URL and repo URL after the public host is up, then submit.
+
+Live URL: <PUBLIC_HTTPS_URL>
+Repo URL: <PUBLIC_MIT_REPO_URL>
+
+Stack: Node 22. One process (`node server.mjs`) for a live host, or `node build.mjs` plus a static host. The GitHub Actions workflow in .github/workflows/pages.yml is a scheduled build that runs at least hourly and publishes public/ to GitHub Pages. No wallet, no analytics, no third-party logos.
+
+Endpoints used (all under https://api.taskmarket.dev, server-side or scheduled-build only; the browser never calls them):
+- /api/market/stats?chainId=
+- /api/stats/breakdowns?chainId=
+- /api/stats/platform-time-series?chainId=&range=&bucket=day
+- /api/stats/activity-heatmap?chainId=&range=7d&dimension=hourOfWeek
+- /api/stats/activity-feed?chainId=&limit=
+- /api/tasks?chainId=&sort=newest&limit=100  (requester addresses, distinct posters per week)
+
+How and how often it refreshes:
+- Live host: on-demand fetch, cache at least 60 seconds (default 300s), visible "data as of" time.
+- Pages / static: scheduled build at least hourly; "data as of" is the build time.
+
+Deploy command:
+  node server.mjs
+or, for the static site:
+  node build.mjs

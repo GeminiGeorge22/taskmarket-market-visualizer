@@ -1,0 +1,10 @@
+{
+  "builtAt": "2026-11-24T19:53:15.424Z",
+  "files": [
+    "/data/snapshot-7d.json",
+    "/data/snapshot-30d.json",
+    "/data/snapshot-90d.json",
+    "/data/snapshot-all.json"
+  ],
+  "refresh": "hourly scheduled build"
+}

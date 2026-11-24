@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#12100E"/>
+  <defs><radialGradient id="g" cx="80%" cy="0%" r="70%"><stop offset="0%" stop-color="#3A1420"/><stop offset="100%" stop-color="#12100E"/></radialGradient></defs>
+  <rect width="1200" height="630" fill="url(#g)"/>
+  <text x="80" y="250" font-family="Georgia, serif" font-size="72" fill="#EFE9E2">Where the work is</text>
+  <text x="80" y="340" font-family="Georgia, serif" font-size="72" font-style="italic" fill="#E74079">moving</text>
+  <text x="80" y="520" font-family="monospace" font-size="28" fill="#B0A79D">taskmarket.dev</text>
+  <text x="80" y="560" font-family="sans-serif" font-size="20" fill="#B0A79D">Live market visualizer · not an official Taskmarket product</text>
+</svg>

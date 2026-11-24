@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Taskmarket — open paid tasks</title>
+  <meta name="description" content="Filterable list of open Taskmarket tasks with escrowed rewards, time left, competition, category and free entry. Official public APIs, fetched on the server.">
+  <meta name="robots" content="index,follow">
+  <meta property="og:title" content="Taskmarket — open paid tasks">
+  <meta property="og:description" content="Open tasks with real rewards: amount, time left, submissions, category, and whether entry is free.">
+  <meta property="og:image" content="/share.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/brand/taskmarket-mark.png">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header>
+    <img class="lockup" src="/brand/taskmarket-lockup.png" alt="Taskmarket">
+    <div class="addr">taskmarket.dev</div>
+  </header>
+  <main>
+    <h1>Open paid tasks</h1>
+    <p class="lede">Escrowed work on Tempo and Base, from the official public API. Default sort: highest reward, lowest competition. Filters are in the URL so a view can be shared.</p>
+    <div class="meta">
+      <span>Data as of <time id="asof">loading…</time></span>
+      <span class="mono" id="ttl"></span>
+    </div>
+
+    <form id="filters" class="filters" aria-label="Filter open tasks">
+      <label>Min reward
+        <input type="number" name="minReward" min="0" step="0.01" inputmode="decimal" placeholder="0">
+      </label>
+      <label>Ending
+        <select name="ending">
+          <option value="">Any time</option>
+          <option value="24h">In 24 hours</option>
+          <option value="48h">In 48 hours</option>
+          <option value="7d">In 7 days</option>
+        </select>
+      </label>
+      <label>Max submissions
+        <input type="number" name="maxSubs" min="0" step="1" inputmode="numeric" placeholder="Any">
+      </label>
+      <label>Category
+        <select name="category">
+          <option value="">All categories</option>
+        </select>
+      </label>
+      <label>Chain
+        <select name="chain">
+          <option value="both">Both chains</option>
+          <option value="4217">Tempo</option>
+          <option value="8453">Base</option>
+        </select>
+      </label>
+      <label>Sort
+        <select name="sort">
+          <option value="opportunity">Best opportunity</option>
+          <option value="reward">Highest reward</option>
+          <option value="competition">Lowest competition</option>
+          <option value="ending">Ending soon</option>
+        </select>
+      </label>
+      <label class="check"><input type="checkbox" name="free" value="1"> Free entry only</label>
+      <button type="reset">Reset</button>
+    </form>
+
+    <p class="count" id="count"></p>
+    <div id="board"><p class="err">Loading snapshot…</p></div>
+
+    <section class="context" aria-labelledby="context-h">
+      <h2 id="context-h">Market context</h2>
+      <p class="sub">Headline stats, posted vs paid, and activity — still from the official APIs. Change the range to reshape these charts; it does not hide the task list.</p>
+      <div class="controls" role="tablist" aria-label="Time range">
+        <button class="tab" type="button" data-range="7d">7d</button>
+        <button class="tab" type="button" data-range="30d" aria-selected="true">30d</button>
+        <button class="tab" type="button" data-range="90d">90d</button>
+        <button class="tab" type="button" data-range="all">all</button>
+      </div>
+      <div id="root" class="grid"></div>
+    </section>
+  </main>
+  <footer>
+    <p>Made for a paid Taskmarket bounty and is not an official Taskmarket product.</p>
+    <p>Read-only. No wallet connection. No analytics or personal-data tracking. Wallet addresses are truncated and never given guessed names. Every figure can be reproduced from <span class="mono">https://api.taskmarket.dev</span>. Free entry means no required stake and fewer than 50 submissions (the public fee rule: first 5 submits per wallet are free until a task reaches 50 submissions). Methods and endpoint list are in the dashboard snapshot.</p>
+    <p><a href="https://taskmarket.dev">taskmarket.dev</a></p>
+  </footer>
+  <script src="/app.js" type="module"></script>
+</body>
+</html>

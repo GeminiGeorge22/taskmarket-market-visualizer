@@ -1,0 +1,16 @@
+{
+  "name": "taskmarket-live-visualizer",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "description": "Live, server-fetched dashboard of Taskmarket market data on Tempo and Base.",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node server.mjs",
+    "dev": "node server.mjs",
+    "build": "node build.mjs"
+  }
+}
